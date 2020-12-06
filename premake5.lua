@@ -1,13 +1,14 @@
-project "GLfw"
+project "GLFW"
   kind "StaticLib"
   language "C"
   
-  targetdir ("bin/" .. outputdir .. "/%(prj.name)")
-  objdir (bin-int/" .. outputdir .. "/%(prj.name)")
+  targetdir ("bin/" .. outputDir .. "/%{prj.name}")
+  objdir (bin-int/" .. outputDir .. "/%{prj.name}")
   
   files {
-    "include/GLfw/glfw3.h",
-    "include/GLfw/glfw3native.h",
+    "include/GLFW/glfw3.h",
+    "include/GLFW/glfw3native.h",
+    "src/glfw_config.h"
     "src/context.c",
     "src/init.c",
     "src/input.c",
