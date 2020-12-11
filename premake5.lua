@@ -2,8 +2,8 @@ project "GLfw"
   kind "StaticLib"
   language "C"
   
-  targetdir ("bin/" .. outputdir .. "/%(prj.name)")
-  objdir (bin-int/" .. outputdir .. "/%(prj.name)")
+  targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+  objdir (bin-int/" .. outputdir .. "/%{prj.name}")
   
   files {
     "include/GLfw/glfw3.h",
@@ -12,7 +12,7 @@ project "GLfw"
     "src/init.c",
     "src/input.c",
     "src/monitor.c",
-    "src/vilkan.c",
+    "src/vulkan.c",
     "src/window.c"
   }
   
@@ -26,7 +26,7 @@ project "GLfw"
     "src/win32_joystick.c",
     "src/win32_monitor.c",
     "src/win32_time.c",
-    "src/thread.c",
+    "src/win32_thread.c",
     "src/win32_window.c",
     "src/wgl_context.c",
     "src/egl_context.c",
