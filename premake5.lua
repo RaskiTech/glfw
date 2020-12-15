@@ -1,13 +1,14 @@
-project "GLfw"
+project "GLFW"
   kind "StaticLib"
   language "C"
+  staticruntime "on"
   
   targetdir ("bin/" .. outputDir .. "/%{prj.name}")
   objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
   
   files {
-    "include/GLfw/glfw3.h",
-    "include/GLfw/glfw3native.h",
+    "include/GLFW/glfw3.h",
+    "include/GLFW/glfw3native.h",
     "src/context.c",
     "src/init.c",
     "src/input.c",
@@ -17,9 +18,7 @@ project "GLfw"
   }
   
   filter "system:windows"
-    buildoptions { "-std=c11", "-lgdi32" }
     systemversion "latest"
-    staticruntime "On"
     
   files {
     "src/win32_init.c",
@@ -37,5 +36,11 @@ project "GLfw"
     "_GLFW_WIN32",
     "_CRT_SECURE_NO_WARNINGS"
   }
-filter {"system:windows", "configurations:Release"}
-  buildoptions "/MT"
+
+  filter "configurations:Debug"
+    runtime "Debug"
+    symbols "on"
+
+filter "configurations:Release"
+    runtime "Release"
+    optimize "on"
